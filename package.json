@@ -1,0 +1,23 @@
+{
+  "name": "roman",
+  "version": "1.0.0",
+  "description": "roman numerals",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/camjm/roman.git"
+  },
+  "keywords": [
+    "roman",
+    "numerals"
+  ],
+  "author": "camjm",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/camjm/roman/issues"
+  },
+  "homepage": "https://github.com/camjm/roman#readme"
+}
