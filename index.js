@@ -10,33 +10,33 @@ const numerals = {
   'I': 1
 };
 
-function toRoman(decimal) {
+function toRoman(arabic) {
   var roman = '';
   for (var numeral in numerals) {
-    var arabic = numerals[numeral];
-    for (var i = decimal - arabic; i >= 0; i -= arabic) {
+    var value = numerals[numeral];
+    for (var i = arabic - value; i >= 0; i -= value) {
       roman += numeral;
-      decimal -= arabic;
+      arabic -= value;
     }
   }
   return roman;
 }
 
 function toArabic(roman) {
-  var decimal = 0;
+  var arabic = 0;
   var chars = Array.from(roman).reverse();
   var previous = 0;
   for (var i = 0; i < chars.length; i++) {
-    var char = chars[i];
-    var arabic = numerals[char];
-    if (arabic < previous) {
-      decimal -= arabic;
+    var numeral = chars[i];
+    var value = numerals[numeral];
+    if (value < previous) {
+      arabic -= value;
     } else {
-      decimal += arabic;
+      arabic += value;
     }
-    previous = arabic;
+    previous = value;
   }
-  return decimal;
+  return arabic;
 }
 
 // Expose
