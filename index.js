@@ -1,58 +1,44 @@
 'use strict';
 
-const numerals = [
-  {
-    'numeral': 'M',
-    'value': 1000
-  }, {
-    'numeral': 'D',
-    'value': 500
-  }, {
-    'numeral': 'C',
-    'value': 100
-  }, {
-    'numeral': 'L',
-    'value': 50
-  }, {
-    'numeral': 'X',
-    'value': 10
-  }, {
-    'numeral': 'V',
-    'value': 5
-  }, {
-    'numeral': 'I',
-    'value': 1
-  }
-];
+const numerals = {
+  'M': 1000,
+  'D': 500,
+  'C': 100,
+  'L': 50,
+  'X': 10,
+  'V': 5,
+  'I': 1
+};
 
-function toDecimal(roman) {
+function toRoman(decimal) {
+  var roman = '';
+  for (var numeral in numerals) {
+    var arabic = numerals[numeral];
+    for (var i = decimal - arabic; i >= 0; i -= arabic) {
+      roman += numeral;
+      decimal -= arabic;
+    }
+  }
+  return roman;
+}
+
+function toArabic(roman) {
   var decimal = 0;
   var chars = Array.from(roman).reverse();
   var previous = 0;
   for (var i = 0; i < chars.length; i++) {
     var char = chars[i];
-    var numeral = numerals.find(element => element.numeral === char);
-    if (numeral.value < previous) {
-      decimal -= numeral.value;
+    var arabic = numerals[char];
+    if (arabic < previous) {
+      decimal -= arabic;
     } else {
-      decimal += numeral.value;
+      decimal += arabic;
     }
-    previous = numeral.value;
+    previous = arabic;
   }
   return decimal;
 }
 
-function toRoman(decimal) {
-  var roman = '';
-  numerals.forEach((current, index) => {
-    for (var i = decimal - current.value; i >= 0; i -= current.value) {
-      roman += current.numeral;
-      decimal -= current.value;
-    }
-  });
-  return roman;
-}
-
 // Expose
-module.exports.toDecimal = toDecimal;
 module.exports.toRoman = toRoman;
+module.exports.toArabic = toArabic;

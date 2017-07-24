@@ -1,0 +1,63 @@
+'use strict';
+
+module.exports = [{
+  roman: 'I',
+  arabic: 1
+}, {
+  roman: 'II',
+  arabic: 2
+}, {
+  roman: 'III',
+  arabic: 3
+}, {
+  roman: 'IV',
+  arabic: 4
+}, {
+  roman: 'V',
+  arabic: 5
+}, {
+  roman: 'VI',
+  arabic: 6
+}, {
+  roman: 'VII',
+  arabic: 7
+}, {
+  roman: 'VIII',
+  arabic: 8
+}, {
+  roman: 'IX',
+  arabic: 9
+}, {
+  roman: 'X',
+  arabic: 10
+}, {
+  roman: 'XI',
+  arabic: 11
+}, {
+  roman: 'XII',
+  arabic: 12
+}, {
+  roman: 'XIII',
+  arabic: 13
+}, {
+  roman: 'XIV',
+  arabic: 14
+}, {
+  roman: 'XV',
+  arabic: 15
+}, {
+  roman: 'XVI',
+  arabic: 16
+}, {
+  roman: 'XVII',
+  arabic: 17
+}, {
+  roman: 'XVIII',
+  arabic: 18
+}, {
+  roman: 'XIX',
+  arabic: 19
+}, {
+  roman: 'XX',
+  arabic: 20
+}];
