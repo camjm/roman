@@ -10,6 +10,11 @@ const numerals = {
   'I': 1
 };
 
+function isRoman(text) {
+  var chars = Array.from(text.toUpperCase());
+  return chars.every(numeral => numerals.hasOwnProperty(numeral));
+}
+
 function toRoman(arabic) {
   var roman = '';
   for (var numeral in numerals) {
@@ -29,16 +34,14 @@ function toArabic(roman) {
   for (var i = 0; i < chars.length; i++) {
     var numeral = chars[i];
     var value = numerals[numeral];
-    if (value < previous) {
-      arabic -= value;
-    } else {
-      arabic += value;
-    }
+    var negative = value < previous;
+    arabic = negative ? arabic - value : arabic + value;
     previous = value;
   }
   return arabic;
 }
 
 // Expose
+module.exports.isRoman = isRoman;
 module.exports.toRoman = toRoman;
 module.exports.toArabic = toArabic;
