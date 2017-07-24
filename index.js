@@ -29,15 +29,11 @@ function toRoman(arabic) {
 
 function toArabic(roman) {
   var arabic = 0;
-  var chars = Array.from(roman).reverse();
-  var previous = 0;
-  for (var i = 0; i < chars.length; i++) {
-    var numeral = chars[i];
-    var value = numerals[numeral];
-    var negative = value < previous;
-    arabic = negative ? arabic - value : arabic + value;
-    previous = value;
-  }
+  Array.from(roman).reduceRight((previous, current) => {
+    var value = numerals[current];
+    arabic = value < previous ? arabic - value : arabic + value;
+    return value;
+  }, 0);
   return arabic;
 }
 
